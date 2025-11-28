@@ -54,6 +54,14 @@ app.get('/running', (req, res) => {
   res.sendStatus(httpStatus.OK);
 });
 
+app.get('/', (req, res) => {
+  res.send('Service running');
+});
+
+app.head('/', (req, res) => {
+  res.sendStatus(httpStatus.OK);
+});
+
 // v1 api routes
 app.use('/v1', routes);
 
