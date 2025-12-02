@@ -37,5 +37,13 @@ router
     instagramAccountController.deleteAccount
   );
 
+router
+  .route('/:accountId/profile')
+  .get(
+    auth('manage-instagram-accounts'),
+    validate(instagramAccountValidation.getAccount),
+    instagramAccountController.getAccountProfile
+  );
+
 module.exports = router;
 

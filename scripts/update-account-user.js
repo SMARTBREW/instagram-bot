@@ -3,7 +3,7 @@ const config = require('../src/config/config');
 const { User, InstagramAccount } = require('../src/models');
 
 const INSTAGRAM_BUSINESS_ID = '17841476187112489';
-const NEW_USER_EMAIL = 'test@test.com'; // The user we just created
+const NEW_USER_EMAIL = 'reviewer@example.com'; // The reviewer user we created for Meta
 
 async function updateAccountUser() {
   try {
