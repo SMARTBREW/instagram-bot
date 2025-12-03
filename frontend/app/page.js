@@ -237,10 +237,8 @@ export default function DemoPage() {
           alignItems: "center",
         }}
       >
-        <div style={{ fontWeight: 700, color: accentColor }}>Instagram DM Demo</div>
-        <div style={{ fontSize: 12, color: accentColor }}>
-          Permissions: instagram_manage_messages + instagram_basic
-        </div>
+        <div style={{ fontWeight: 700, color: accentColor }}>Instagram DM</div>
+       
       </div>
     </div>
   );
