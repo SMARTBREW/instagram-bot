@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Instagram DM Backend Demo",
-  description: "Minimal demo UI for Meta App Review (instagram_manage_messages & instagram_basic)",
+  title: "Instagram DM",
+  description: "Instagram DM UI",
 };
 
 export default function RootLayout({ children }) {

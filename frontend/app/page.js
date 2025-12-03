@@ -418,7 +418,7 @@ export default function DemoPage() {
                   background: "#fffef5",
                 }}>
                   <h3 style={{ marginTop: 0, fontSize: 16, color: accentColor }}>
-                    📊 Profile Details (via instagram_basic permission)
+                    📊 Profile Details for @{selectedAccount.username || selectedAccount.instagramBusinessId} (via instagram_basic permission)
                   </h3>
                   {loadingProfile && <p style={{ fontSize: 13, color: "#666" }}>Loading profile...</p>}
                   {profileError && (
@@ -448,7 +448,7 @@ export default function DemoPage() {
                         <div><strong>Website:</strong> <a href={profileData.website} target="_blank" rel="noopener noreferrer" style={{ color: "#0066cc" }}>{profileData.website}</a></div>
                       )}
                       <div style={{ gridColumn: "span 2", marginTop: 8 }}>
-                        <strong>Recent Media (via instagram_basic):</strong>
+                        <strong>Recent Media for @{profileData.username} (via instagram_basic):</strong>
                         {profileData.media && profileData.media.length > 0 ? (
                           <div style={{
                             display: "grid",
@@ -611,6 +611,11 @@ export default function DemoPage() {
                         <div style={{ fontSize: 12, color: "#777" }}>
                           igUserId: <code>{selectedConversation.igUserId}</code>
                         </div>
+                        {selectedAccount && (
+                          <div style={{ fontSize: 12, color: accentColor, marginTop: 4, fontWeight: 600 }}>
+                            📱 Sending from: @{selectedAccount.username || selectedAccount.instagramBusinessId} (ID: {selectedAccount.instagramBusinessId})
+                          </div>
+                        )}
                       </div>
                       
                       {/* Messages list */}
@@ -646,7 +651,9 @@ export default function DemoPage() {
                             }}
                           >
                             <div style={{ fontWeight: 600, fontSize: 11, color: "#666", marginBottom: 2 }}>
-                              {msg.sender === "user" ? "Customer" : "You"}
+                              {msg.sender === "user" 
+                                ? `Customer (@${selectedConversation.igUsername || `user_${selectedConversation.igUserId?.slice(-6)}`})`
+                                : `You (from @${selectedAccount?.username || selectedAccount?.instagramBusinessId})`}
                             </div>
                             <div style={{ color: "#333" }}>{msg.text || "(no text)"}</div>
                             {msg.attachments && msg.attachments.length > 0 && (
@@ -664,7 +671,7 @@ export default function DemoPage() {
                       {/* Send form */}
                       <form onSubmit={handleSend} style={{ marginTop: "auto" }}>
                         <label style={{ display: "block", fontSize: 13, marginBottom: 4 }}>
-                          Send reply (uses <code>instagram_manage_messages</code>)
+                          Send reply from @{selectedAccount?.username || selectedAccount?.instagramBusinessId} (uses <code>instagram_manage_messages</code>)
                         </label>
                         <textarea
                           value={sendText}
