@@ -31,7 +31,6 @@ module.exports = {
   mongoose: {
     url: envVars.MONGODB_URL + (envVars.NODE_ENV === 'test' ? '-test' : ''),
     options: {
-      // MongoDB driver 4.0.0+ no longer needs these options
     },
   },
   jwt: {

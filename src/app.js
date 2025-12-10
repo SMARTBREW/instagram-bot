@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -45,6 +46,9 @@ app.options('*', cors());
 passport.use('jwt', jwtStrategy);
 app.use(passport.initialize());
 
+// Serve static files (privacy policy)
+app.use(express.static(path.join(__dirname, '../public')));
+
 // Health check endpoint
 app.get('/health-check', (req, res) => {
   res.send('OK');
@@ -60,6 +64,11 @@ app.get('/', (req, res) => {
 
 app.head('/', (req, res) => {
   res.sendStatus(httpStatus.OK);
+});
+
+// Privacy Policy - Public route (no authentication required)
+app.get('/privacy-policy', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/privacy-policy.html'));
 });
 
 // v1 api routes
