@@ -41,6 +41,17 @@ export default function RootLayout({ children }) {
               Privacy Policy
             </Link>
             <span style={{ margin: "0 8px" }}>•</span>
+            <Link 
+              href="/terms-of-service" 
+              style={{ 
+                color: "#000000", 
+                textDecoration: "underline",
+                fontWeight: 500,
+              }}
+            >
+              Terms of Service
+            </Link>
+            <span style={{ margin: "0 8px" }}>•</span>
             <span>Instagram DM Automation by SMARTBREW</span>
           </div>
         </footer>
