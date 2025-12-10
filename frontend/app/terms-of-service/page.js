@@ -288,7 +288,6 @@ export default function TermsOfService() {
           <strong>Business Entity:</strong> SMARTBREW<br />
           <strong>App Name:</strong> Instagram DM Automation<br />
           <strong>App Developer and Operator:</strong> SMARTBREW<br />
-          <strong>App ID (Meta):</strong> 1399394331530640<br />
           <strong>Backend API URL:</strong> https://instagram-bot-xmt8.onrender.com<br />
           <strong>Web Application URL:</strong> https://instagram-bot-rust.vercel.app<br />
           <strong>Privacy Policy URL:</strong> https://instagram-bot-rust.vercel.app/privacy-policy<br />
