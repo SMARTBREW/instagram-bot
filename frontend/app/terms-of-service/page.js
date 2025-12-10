@@ -293,7 +293,8 @@ export default function TermsOfService() {
           <strong>Web Application URL:</strong> https://instagram-bot-rust.vercel.app<br />
           <strong>Privacy Policy URL:</strong> https://instagram-bot-rust.vercel.app/privacy-policy<br />
           <strong>Terms of Service URL:</strong> https://instagram-bot-rust.vercel.app/terms-of-service<br />
-          <strong>Contact Method:</strong> Please contact us through the Meta Developer Portal for this app (App ID: 1399394331530640)
+          <strong>Contact Email:</strong> contact@smartbrew.in<br />
+          <strong>Contact Method:</strong> Please contact us via email at contact@smartbrew.in
         </p>
         <p>
           <strong>Clear Connection to App and Business:</strong> These Terms of Service apply specifically to the Instagram DM Automation 

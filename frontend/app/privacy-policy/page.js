@@ -212,7 +212,8 @@ export default function PrivacyPolicy() {
           <strong>Backend API URL:</strong> https://instagram-bot-xmt8.onrender.com<br />
           <strong>Web Application URL:</strong> https://instagram-bot-rust.vercel.app<br />
           <strong>Privacy Policy URL:</strong> https://instagram-bot-rust.vercel.app/privacy-policy<br />
-          <strong>Contact Method:</strong> Please contact us through the Meta Developer Portal for this app (App ID: 1399394331530640)
+          <strong>Contact Email:</strong> contact@smartbrew.in<br />
+          <strong>Contact Method:</strong> Please contact us via email at contact@smartbrew.in
         </p>
         <p>
           <strong>Connection to App:</strong> This privacy policy applies specifically to the Instagram DM Automation application 
@@ -221,7 +222,7 @@ export default function PrivacyPolicy() {
         </p>
         <p>
           If you have any questions about this Privacy Policy, our data practices, or wish to exercise your rights, please contact 
-          us through the Meta Developer Portal for this app.
+          us via email at <strong>contact@smartbrew.in</strong> or through the Meta Developer Portal for this app.
         </p>
       </div>
 
