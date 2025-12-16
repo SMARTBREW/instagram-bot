@@ -31,17 +31,17 @@ export default function DemoPage() {
   const [sendStatus, setSendStatus] = useState("");
 
   const commonBox = {
-    maxWidth: 900,
+    maxWidth: 1200,
     margin: "24px auto",
-    padding: 24,
-    borderRadius: 12,
-    background: "white",
-    boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
+    padding: 0,
+    borderRadius: 0,
+    background: "transparent",
+    boxShadow: "none",
   };
 
-  const primaryColor = "#f5cd4c";
-  const accentColor = "#000000";
-  const backgroundColor = "#f0e9d3";
+  const primaryColor = "#0095f6";
+  const accentColor = "#262626";
+  const backgroundColor = "#fafafa";
 
   useEffect(() => {
     document.body.style.backgroundColor = backgroundColor;
@@ -223,13 +223,14 @@ export default function DemoPage() {
   const header = (
     <div
       style={{
-        background: primaryColor,
-        borderBottom: "1px solid rgba(0,0,0,0.08)",
+        background: "white",
+        borderBottom: "1px solid #dbdbdb",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
       }}
     >
       <div
         style={{
-          maxWidth: 900,
+          maxWidth: 1200,
           margin: "0 auto",
           padding: "16px 24px",
           display: "flex",
@@ -237,7 +238,7 @@ export default function DemoPage() {
           alignItems: "center",
         }}
       >
-        <div style={{ fontWeight: 700, color: accentColor }}>Instagram DM</div>
+        <div style={{ fontWeight: 600, color: accentColor, fontSize: 18 }}>Instagram Messages</div>
        
       </div>
     </div>
@@ -250,68 +251,65 @@ export default function DemoPage() {
         <section style={commonBox}>
           {step === "login" && (
             <>
-              <h2 style={{ marginTop: 0, color: accentColor }}>Step 1 · Login (JWT)</h2>
-              <p style={{ fontSize: 14, color: "#555" }}>
-                This form calls <code>/v1/auth/login</code> on the backend and stores the{" "}
-                <code>access.token</code>. Meta reviewers can use the same credentials:
-              </p>
-              <ul style={{ fontSize: 14, color: "#333" }}>
-                <li>
-                  Email: <code>reviewer@example.com</code>
-                </li>
-                <li>
-                  Password: <code>Reviewer123</code>
-                </li>
-              </ul>
-              <form onSubmit={handleLogin} style={{ marginTop: 16 }}>
-                <div style={{ marginBottom: 12 }}>
-                  <label style={{ display: "block", fontSize: 13, marginBottom: 4 }}>
-                    Email
-                  </label>
+              <div style={{ textAlign: "center", marginBottom: 32 }}>
+                <h1 style={{ marginTop: 0, marginBottom: 8, color: accentColor, fontSize: 28, fontWeight: 600 }}>
+                  Instagram Messages
+                </h1>
+                <p style={{ fontSize: 15, color: "#8e8e8e", margin: 0 }}>
+                  Manage your Instagram Direct Messages
+                </p>
+              </div>
+              <form onSubmit={handleLogin} style={{ maxWidth: 350, margin: "0 auto" }}>
+                <div style={{ marginBottom: 16 }}>
                   <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
+                    placeholder="Email"
                     style={{
                       width: "100%",
-                      padding: "8px 10px",
-                      borderRadius: 6,
-                      border: "1px solid #ccc",
+                      padding: "12px 16px",
+                      borderRadius: 4,
+                      border: "1px solid #dbdbdb",
+                      fontSize: 14,
+                      background: "#fafafa",
                     }}
                   />
                 </div>
                 <div style={{ marginBottom: 16 }}>
-                  <label style={{ display: "block", fontSize: 13, marginBottom: 4 }}>
-                    Password
-                  </label>
                   <input
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
+                    placeholder="Password"
                     style={{
                       width: "100%",
-                      padding: "8px 10px",
-                      borderRadius: 6,
-                      border: "1px solid #ccc",
+                      padding: "12px 16px",
+                      borderRadius: 4,
+                      border: "1px solid #dbdbdb",
+                      fontSize: 14,
+                      background: "#fafafa",
                     }}
                   />
                 </div>
                 {loginError && (
-                  <p style={{ color: "red", fontSize: 13, marginBottom: 8 }}>{loginError}</p>
+                  <p style={{ color: "#ed4956", fontSize: 13, marginBottom: 12, textAlign: "center" }}>{loginError}</p>
                 )}
                 <button
                   type="submit"
                   style={{
-                    background: accentColor,
+                    width: "100%",
+                    background: primaryColor,
                     color: "white",
                     border: "none",
-                    padding: "8px 16px",
-                    borderRadius: 999,
+                    padding: "10px 16px",
+                    borderRadius: 4,
                     cursor: "pointer",
                     fontSize: 14,
+                    fontWeight: 600,
                   }}
                 >
-                  Login and fetch accounts
+                  Log In
                 </button>
               </form>
             </>
@@ -319,66 +317,69 @@ export default function DemoPage() {
 
           {step === "accounts" && (
             <>
-              <h2 style={{ marginTop: 0, color: accentColor }}>Step 2 · Connected Instagram account</h2>
-              <p style={{ fontSize: 14, color: "#555" }}>
-                This view calls <code>/v1/instagram</code> with the JWT and shows the connected
-                business account.
-              </p>
-              <button
-                onClick={loadAccounts}
-                style={{
-                  background: accentColor,
-                  color: "white",
-                  border: "none",
-                  padding: "6px 14px",
-                  borderRadius: 999,
-                  cursor: "pointer",
-                  fontSize: 13,
-                  marginBottom: 12,
-                }}
-              >
-                Load accounts
-              </button>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+                <h2 style={{ marginTop: 0, color: accentColor, fontSize: 24, fontWeight: 600 }}>Select Account</h2>
+                <button
+                  onClick={loadAccounts}
+                  style={{
+                    background: "transparent",
+                    color: primaryColor,
+                    border: "1px solid #dbdbdb",
+                    padding: "8px 16px",
+                    borderRadius: 4,
+                    cursor: "pointer",
+                    fontSize: 14,
+                    fontWeight: 600,
+                  }}
+                >
+                  Refresh
+                </button>
+              </div>
               {accountsError && (
-                <p style={{ color: "red", fontSize: 13, marginBottom: 8 }}>{accountsError}</p>
+                <p style={{ color: "#ed4956", fontSize: 14, marginBottom: 16, textAlign: "center" }}>{accountsError}</p>
               )}
               <div>
                 {accounts.map((acc) => (
                   <div
                     key={acc.id}
+                    onClick={() => openAccount(acc)}
                     style={{
                       borderRadius: 8,
-                      border: "1px solid #ddd",
-                      padding: 12,
-                      marginBottom: 8,
+                      border: "1px solid #dbdbdb",
+                      padding: 16,
+                      marginBottom: 12,
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                      background: "white",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = primaryColor;
+                      e.currentTarget.style.background = "#fafafa";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "#dbdbdb";
+                      e.currentTarget.style.background = "white";
                     }}
                   >
                     <div>
-                      <div style={{ fontWeight: 600 }}>{acc.username || acc.instagramBusinessId}</div>
-                      <div style={{ fontSize: 12, color: "#777" }}>
-                        ID: <code>{acc.instagramBusinessId}</code>
+                      <div style={{ fontWeight: 600, fontSize: 16, color: accentColor }}>@{acc.username || acc.instagramBusinessId}</div>
+                      <div style={{ fontSize: 13, color: "#8e8e8e", marginTop: 4 }}>
+                        Account ID: {acc.instagramBusinessId}
                       </div>
                     </div>
-                    <button
-                      onClick={() => openAccount(acc)}
-                      style={{
-                        background: primaryColor,
-                        border: "none",
-                        padding: "6px 12px",
-                        borderRadius: 999,
-                        cursor: "pointer",
-                        fontSize: 13,
-                      }}
-                    >
-                      View conversations
-                    </button>
+                    <div style={{ color: primaryColor, fontSize: 14, fontWeight: 600 }}>
+                      Open →
+                    </div>
                   </div>
                 ))}
                 {accounts.length === 0 && !accountsError && (
-                  <p style={{ fontSize: 13, color: "#666" }}>No accounts loaded yet.</p>
+                  <div style={{ textAlign: "center", padding: "40px 20px", color: "#8e8e8e" }}>
+                    <p style={{ fontSize: 15, marginBottom: 8 }}>No accounts found</p>
+                    <p style={{ fontSize: 13 }}>Click Refresh to load connected accounts</p>
+                  </div>
                 )}
               </div>
             </>
@@ -386,155 +387,53 @@ export default function DemoPage() {
 
           {step === "conversations" && selectedAccount && (
             <>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
                 <div>
-                  <h2 style={{ marginTop: 0, color: accentColor }}>Step 3 · Conversations & messages</h2>
-                  <p style={{ fontSize: 14, color: "#555" }}>
-                    This view calls <code>/v1/conversations/&lt;accountId&gt;</code> to list
-                    conversations. Each conversation shows the username fetched via{" "}
-                    <code>instagram_basic</code> plus recent messages received via{" "}
-                    <code>instagram_manage_messages</code>. Auto-refreshes every 8 seconds.
+                  <h2 style={{ marginTop: 0, color: accentColor, fontSize: 24, fontWeight: 600 }}>
+                    Messages
+                  </h2>
+                  <p style={{ fontSize: 14, color: "#8e8e8e", marginTop: 4 }}>
+                    @{selectedAccount.username || selectedAccount.instagramBusinessId}
                   </p>
-                  {selectedAccount && (
-                    <div style={{ marginTop: 8, fontSize: 13, fontWeight: 600, color: accentColor }}>
-                      📱 Account: @{selectedAccount.username || selectedAccount.instagramBusinessId} (ID: {selectedAccount.instagramBusinessId})
-                    </div>
-                  )}
                 </div>
-                {isRefreshing && (
-                  <span style={{ fontSize: 12, color: "#666" }}>🔄 Refreshing...</span>
-                )}
+                <button
+                  onClick={() => setStep("accounts")}
+                  style={{
+                    background: "transparent",
+                    color: accentColor,
+                    border: "1px solid #dbdbdb",
+                    padding: "8px 16px",
+                    borderRadius: 4,
+                    cursor: "pointer",
+                    fontSize: 14,
+                  }}
+                >
+                  Switch Account
+                </button>
               </div>
 
-              {/* Profile Display Section - Shows instagram_basic usage */}
-              {selectedAccount && (
-                <div style={{
-                  marginBottom: 16,
-                  padding: 16,
-                  borderRadius: 8,
-                  border: "2px solid #f5cd4c",
-                  background: "#fffef5",
-                }}>
-                  <h3 style={{ marginTop: 0, fontSize: 16, color: accentColor }}>
-                    📊 Profile Details for @{selectedAccount.username || selectedAccount.instagramBusinessId} (via instagram_basic permission)
-                  </h3>
-                  {loadingProfile && <p style={{ fontSize: 13, color: "#666" }}>Loading profile...</p>}
-                  {profileError && (
-                    <p style={{ color: "red", fontSize: 13 }}>Error loading profile: {profileError}</p>
-                  )}
-                  {profileData && (
-                    <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, fontSize: 13 }}>
-                      {profileData.profilePictureUrl && (
-                        <img
-                          src={profileData.profilePictureUrl}
-                          alt="Profile"
-                          style={{
-                            width: 80,
-                            height: 80,
-                            borderRadius: "50%",
-                            border: "2px solid #f5cd4c",
-                            gridRow: "span 4",
-                          }}
-                        />
-                      )}
-                      <div><strong>Handle:</strong> @{profileData.username}</div>
-                      <div><strong>Name:</strong> {profileData.name || "N/A"}</div>
-                      <div><strong>Bio:</strong> {profileData.biography || "No bio"}</div>
-                      <div><strong>Followers:</strong> {profileData.followersCount?.toLocaleString() || 0}</div>
-                      <div><strong>Posts:</strong> {profileData.mediaCount || 0}</div>
-                      {profileData.website && (
-                        <div><strong>Website:</strong> <a href={profileData.website} target="_blank" rel="noopener noreferrer" style={{ color: "#0066cc" }}>{profileData.website}</a></div>
-                      )}
-                      <div style={{ gridColumn: "span 2", marginTop: 8 }}>
-                        <strong>Recent Media for @{profileData.username} (via instagram_basic):</strong>
-                        {profileData.media && profileData.media.length > 0 ? (
-                          <div style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(auto-fill, minmax(80px, 1fr))",
-                            gap: 8,
-                            marginTop: 8,
-                          }}>
-                            {profileData.media.map((post) => (
-                              <div
-                                key={post.id}
-                                style={{
-                                  aspectRatio: "1",
-                                  borderRadius: 4,
-                                  overflow: "hidden",
-                                  border: "1px solid #ddd",
-                                  background: "#f5f5f5",
-                                  position: "relative",
-                                }}
-                              >
-                                {post.media_url && (
-                                  <img
-                                    src={post.media_url}
-                                    alt={post.caption || "Post"}
-                                    style={{
-                                      width: "100%",
-                                      height: "100%",
-                                      objectFit: "cover",
-                                    }}
-                                  />
-                                )}
-                                {post.media_type && (
-                                  <div style={{
-                                    position: "absolute",
-                                    top: 4,
-                                    right: 4,
-                                    background: "rgba(0,0,0,0.6)",
-                                    color: "white",
-                                    fontSize: 10,
-                                    padding: "2px 4px",
-                                    borderRadius: 3,
-                                  }}>
-                                    {post.media_type === "VIDEO" ? "▶" : "📷"}
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <p style={{ fontSize: 12, color: "#666", marginTop: 4 }}>No media found</p>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-              <button
-                onClick={() => setStep("accounts")}
-                style={{
-                  background: "transparent",
-                  color: accentColor,
-                  border: "1px solid #ccc",
-                  padding: "4px 10px",
-                  borderRadius: 999,
-                  cursor: "pointer",
-                  fontSize: 12,
-                  marginBottom: 12,
-                }}
-              >
-                ← Back to accounts
-              </button>
               {convError && (
-                <p style={{ color: "red", fontSize: 13, marginBottom: 8 }}>{convError}</p>
+                <p style={{ color: "#ed4956", fontSize: 14, marginBottom: 16, textAlign: "center" }}>{convError}</p>
               )}
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "minmax(0, 1.3fr) minmax(0, 1.7fr)",
-                  gap: 16,
+                  gridTemplateColumns: "minmax(0, 350px) minmax(0, 1fr)",
+                  gap: 0,
+                  border: "1px solid #dbdbdb",
+                  borderRadius: 8,
+                  overflow: "hidden",
+                  background: "white",
+                  minHeight: 600,
                 }}
               >
                 <div
                   style={{
-                    borderRadius: 8,
-                    border: "1px solid #eee",
-                    maxHeight: 260,
+                    borderRight: "1px solid #dbdbdb",
+                    maxHeight: 600,
                     overflowY: "auto",
-                    padding: 8,
-                    background: "#faf7ee",
+                    padding: 0,
+                    background: "white",
                   }}
                 >
                   {conversations.map((conv) => (
@@ -542,76 +441,80 @@ export default function DemoPage() {
                       key={conv.id}
                       onClick={() => selectConversation(conv)}
                       style={{
-                        padding: 8,
-                        borderRadius: 6,
-                        marginBottom: 6,
+                        padding: "12px 16px",
                         cursor: "pointer",
                         background:
                           selectedConversation && selectedConversation.id === conv.id
-                            ? primaryColor
+                            ? "#f0f0f0"
                             : "white",
-                        border: "1px solid #e2d5aa",
-                        fontSize: 13,
+                        borderBottom: "1px solid #dbdbdb",
+                        fontSize: 14,
                         position: "relative",
+                        transition: "background 0.2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!selectedConversation || selectedConversation.id !== conv.id) {
+                          e.currentTarget.style.background = "#fafafa";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!selectedConversation || selectedConversation.id !== conv.id) {
+                          e.currentTarget.style.background = "white";
+                        }
                       }}
                     >
-                      <div style={{ fontWeight: 600, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span>@{conv.igUsername || `user_${conv.igUserId?.slice(-6)}`}</span>
+                      <div style={{ fontWeight: 600, display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                        <span style={{ color: accentColor }}>@{conv.igUsername || `user_${conv.igUserId?.slice(-6)}`}</span>
                         {conv.unreadCount > 0 && (
                           <span style={{
-                            background: "#ff4444",
+                            background: primaryColor,
                             color: "white",
                             borderRadius: "50%",
-                            width: 18,
-                            height: 18,
+                            minWidth: 20,
+                            height: 20,
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            fontSize: 10,
-                            fontWeight: 700,
+                            fontSize: 11,
+                            fontWeight: 600,
+                            padding: "0 6px",
                           }}>
                             {conv.unreadCount}
                           </span>
                         )}
                       </div>
-                      <div style={{ color: "#555", marginTop: 2, fontSize: 12 }}>
-                        {conv.lastMessage || "(no preview)"}
+                      <div style={{ color: "#8e8e8e", fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {conv.lastMessage || "No messages"}
                       </div>
                     </div>
                   ))}
                   {conversations.length === 0 && !convError && (
-                    <p style={{ fontSize: 13, color: "#666", padding: 8 }}>
-                      No conversations yet. Send a DM to this Instagram business account from your
-                      phone to create one.
-                    </p>
+                    <div style={{ padding: "40px 20px", textAlign: "center", color: "#8e8e8e" }}>
+                      <p style={{ fontSize: 15, marginBottom: 4 }}>No conversations</p>
+                      <p style={{ fontSize: 13 }}>Messages will appear here when customers contact you</p>
+                    </div>
                   )}
                 </div>
 
                 <div
                   style={{
-                    borderRadius: 8,
-                    border: "1px solid #eee",
-                    padding: 10,
+                    padding: 0,
                     background: "white",
-                    minHeight: 220,
+                    minHeight: 600,
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
                   {selectedConversation ? (
                     <>
-                      <div style={{ marginBottom: 8, borderBottom: "1px solid #eee", paddingBottom: 8 }}>
-                        <div style={{ fontWeight: 600, fontSize: 14 }}>
-                          Conversation with @
-                          {selectedConversation.igUsername ||
+                      <div style={{ padding: "16px", borderBottom: "1px solid #dbdbdb", background: "#fafafa" }}>
+                        <div style={{ fontWeight: 600, fontSize: 16, color: accentColor }}>
+                          @{selectedConversation.igUsername ||
                             `user_${selectedConversation.igUserId?.slice(-6)}`}
                         </div>
-                        <div style={{ fontSize: 12, color: "#777" }}>
-                          igUserId: <code>{selectedConversation.igUserId}</code>
-                        </div>
                         {selectedAccount && (
-                          <div style={{ fontSize: 12, color: accentColor, marginTop: 4, fontWeight: 600 }}>
-                            📱 Sending from: @{selectedAccount.username || selectedAccount.instagramBusinessId} (ID: {selectedAccount.instagramBusinessId})
+                          <div style={{ fontSize: 12, color: "#8e8e8e", marginTop: 4 }}>
+                            Replying as @{selectedAccount.username || selectedAccount.instagramBusinessId}
                           </div>
                         )}
                       </div>
@@ -620,96 +523,118 @@ export default function DemoPage() {
                       <div style={{
                         flex: 1,
                         overflowY: "auto",
-                        maxHeight: 300,
-                        marginBottom: 12,
-                        padding: "8px 0",
-                        border: "1px solid #f0f0f0",
-                        borderRadius: 6,
-                        background: "#fafafa",
+                        padding: "16px",
+                        background: "#ffffff",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
                       }}>
                         {messagesError && (
-                          <p style={{ color: "red", fontSize: 12, padding: 8 }}>{messagesError}</p>
+                          <p style={{ color: "#ed4956", fontSize: 13, padding: 8, textAlign: "center" }}>{messagesError}</p>
                         )}
                         {messages.length === 0 && !messagesError && (
-                          <p style={{ fontSize: 12, color: "#666", padding: 8, textAlign: "center" }}>
-                            No messages yet. Messages will appear here when received via webhook.
-                          </p>
+                          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", color: "#8e8e8e" }}>
+                            <div style={{ textAlign: "center" }}>
+                              <p style={{ fontSize: 15, marginBottom: 4 }}>No messages yet</p>
+                              <p style={{ fontSize: 13 }}>Start the conversation</p>
+                            </div>
+                          </div>
                         )}
                         {messages.map((msg) => (
                           <div
                             key={msg.id}
                             style={{
-                              padding: "6px 10px",
-                              margin: "4px 8px",
-                              borderRadius: 8,
-                              background: msg.sender === "user" ? "#e3f2fd" : "#fff9c4",
-                              alignSelf: msg.sender === "user" ? "flex-start" : "flex-end",
-                              maxWidth: "80%",
-                              fontSize: 13,
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: msg.sender === "user" ? "flex-start" : "flex-end",
+                              maxWidth: "70%",
                             }}
                           >
-                            <div style={{ fontWeight: 600, fontSize: 11, color: "#666", marginBottom: 2 }}>
-                              {msg.sender === "user" 
-                                ? `Customer (@${selectedConversation.igUsername || `user_${selectedConversation.igUserId?.slice(-6)}`})`
-                                : `You (from @${selectedAccount?.username || selectedAccount?.instagramBusinessId})`}
+                            <div
+                              style={{
+                                padding: "10px 14px",
+                                borderRadius: 18,
+                                background: msg.sender === "user" ? "#efefef" : primaryColor,
+                                color: msg.sender === "user" ? accentColor : "white",
+                                fontSize: 14,
+                                lineHeight: 1.4,
+                                wordWrap: "break-word",
+                              }}
+                            >
+                              {msg.text || "(no text)"}
                             </div>
-                            <div style={{ color: "#333" }}>{msg.text || "(no text)"}</div>
                             {msg.attachments && msg.attachments.length > 0 && (
-                              <div style={{ fontSize: 11, color: "#777", marginTop: 4 }}>
-                                📎 {msg.attachments.length} attachment(s)
+                              <div style={{ fontSize: 12, color: "#8e8e8e", marginTop: 4, padding: "0 4px" }}>
+                                {msg.attachments.length} attachment{msg.attachments.length > 1 ? "s" : ""}
                               </div>
                             )}
-                            <div style={{ fontSize: 10, color: "#999", marginTop: 4 }}>
-                              {new Date(msg.timestamp).toLocaleTimeString()}
+                            <div style={{ fontSize: 11, color: "#8e8e8e", marginTop: 4, padding: "0 4px" }}>
+                              {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
                           </div>
                         ))}
                       </div>
 
                       {/* Send form */}
-                      <form onSubmit={handleSend} style={{ marginTop: "auto" }}>
-                        <label style={{ display: "block", fontSize: 13, marginBottom: 4 }}>
-                          Send reply from @{selectedAccount?.username || selectedAccount?.instagramBusinessId} (uses <code>instagram_manage_messages</code>)
-                        </label>
-                        <textarea
-                          value={sendText}
-                          onChange={(e) => setSendText(e.target.value)}
-                          rows={2}
-                          style={{
-                            width: "100%",
-                            padding: 8,
-                            borderRadius: 6,
-                            border: "1px solid #ccc",
-                            resize: "vertical",
-                            fontSize: 13,
-                          }}
-                          placeholder="Type a reply to send via the Graph API…"
-                        />
-                        <div style={{ marginTop: 8, display: "flex", alignItems: "center", gap: 8 }}>
+                      <form onSubmit={handleSend} style={{ marginTop: "auto", padding: "16px", borderTop: "1px solid #dbdbdb", background: "#fafafa" }}>
+                        <div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
+                          <textarea
+                            value={sendText}
+                            onChange={(e) => setSendText(e.target.value)}
+                            rows={1}
+                            style={{
+                              flex: 1,
+                              padding: "10px 14px",
+                              borderRadius: 22,
+                              border: "1px solid #dbdbdb",
+                              resize: "none",
+                              fontSize: 14,
+                              fontFamily: "inherit",
+                              background: "white",
+                              maxHeight: 100,
+                            }}
+                            placeholder="Message..."
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" && !e.shiftKey) {
+                                e.preventDefault();
+                                if (sendText.trim()) {
+                                  handleSend(e);
+                                }
+                              }
+                            }}
+                          />
                           <button
                             type="submit"
+                            disabled={!sendText.trim()}
                             style={{
-                              background: accentColor,
+                              background: sendText.trim() ? primaryColor : "#c0dffd",
                               color: "white",
                               border: "none",
-                              padding: "6px 14px",
-                              borderRadius: 999,
-                              cursor: "pointer",
-                              fontSize: 13,
+                              padding: "10px 20px",
+                              borderRadius: 22,
+                              cursor: sendText.trim() ? "pointer" : "not-allowed",
+                              fontSize: 14,
+                              fontWeight: 600,
+                              minWidth: 80,
                             }}
                           >
-                            Send reply
+                            Send
                           </button>
-                          {sendStatus && (
-                            <span style={{ fontSize: 12, color: "#555" }}>{sendStatus}</span>
-                          )}
                         </div>
+                        {sendStatus && (
+                          <div style={{ marginTop: 8, fontSize: 12, color: sendStatus.includes("✅") ? "#0095f6" : "#ed4956", textAlign: "center" }}>
+                            {sendStatus}
+                          </div>
+                        )}
                       </form>
                     </>
                   ) : (
-                    <p style={{ fontSize: 13, color: "#666" }}>
-                      Select a conversation from the left to see messages and send a reply.
-                    </p>
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", color: "#8e8e8e" }}>
+                      <div style={{ textAlign: "center" }}>
+                        <p style={{ fontSize: 15, marginBottom: 4 }}>Select a conversation</p>
+                        <p style={{ fontSize: 13 }}>Choose a conversation from the list to view messages</p>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
@@ -720,5 +645,6 @@ export default function DemoPage() {
     </>
   );
 }
+
 
 

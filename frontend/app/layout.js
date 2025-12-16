@@ -21,38 +21,38 @@ export default function RootLayout({ children }) {
       >
         <div style={{ flex: 1 }}>{children}</div>
         <footer style={{
-          background: "#f5cd4c",
-          borderTop: "1px solid rgba(0,0,0,0.08)",
-          padding: "12px 24px",
+          background: "#fafafa",
+          borderTop: "1px solid #dbdbdb",
+          padding: "16px 24px",
           textAlign: "center",
           fontSize: "12px",
-          color: "#000000",
+          color: "#8e8e8e",
           marginTop: "auto",
         }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <Link 
               href="/privacy-policy" 
               style={{ 
-                color: "#000000", 
-                textDecoration: "underline",
-                fontWeight: 500,
+                color: "#8e8e8e", 
+                textDecoration: "none",
+                fontWeight: 400,
               }}
             >
               Privacy Policy
             </Link>
-            <span style={{ margin: "0 8px" }}>•</span>
+            <span style={{ margin: "0 8px", color: "#dbdbdb" }}>•</span>
             <Link 
               href="/terms-of-service" 
               style={{ 
-                color: "#000000", 
-                textDecoration: "underline",
-                fontWeight: 500,
+                color: "#8e8e8e", 
+                textDecoration: "none",
+                fontWeight: 400,
               }}
             >
               Terms of Service
             </Link>
-            <span style={{ margin: "0 8px" }}>•</span>
-            <span>Instagram DM Automation by SMARTBREW</span>
+            <span style={{ margin: "0 8px", color: "#dbdbdb" }}>•</span>
+            <span>Instagram Messages by SMARTBREW</span>
           </div>
         </footer>
       </body>
