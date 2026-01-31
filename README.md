@@ -5,7 +5,6 @@ Backend system that connects with Meta's Instagram Messaging API to manage Insta
 ## Features
 
 - ✅ Backend skeleton with Express + Mongoose
-- ✅ Authentication system (JWT-based)
 - ✅ Instagram account connection management
 - ✅ Meta webhook integration
 - ✅ Message & conversation storage
