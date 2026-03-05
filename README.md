@@ -48,7 +48,6 @@ src/
 │   ├── ApiError.js     # Custom error class
 │   ├── catchAsync.js   # Async error wrapper
 │   └── pick.js         # Object property picker
-└── helpers/             # Helper functions
 
 ```
 
