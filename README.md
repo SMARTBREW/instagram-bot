@@ -11,7 +11,6 @@ Backend system that connects with Meta's Instagram Messaging API to manage Insta
 - ✅ Send Instagram DMs via API
 - ✅ Multi-account support
 - ✅ Logging system
-- 🔄 Auto-reply automation (future enhancement)
 
 ## Tech Stack
 
