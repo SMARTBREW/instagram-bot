@@ -57,8 +57,7 @@ src/
 ```bash
 npm install
 # or
-yarn install
-```
+
 
 ### 2. Environment Variables
 
