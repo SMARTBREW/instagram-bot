@@ -45,8 +45,6 @@ src/
 ├── utils/               # Utility functions
 │   ├── ApiError.js     # Custom error class
 │   ├── catchAsync.js   # Async error wrapper
-│   └── pick.js         # Object property picker
-
 ```
 
 ## Getting Started
