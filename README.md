@@ -9,7 +9,6 @@ Backend system that connects with Meta's Instagram Messaging API to manage Insta
 - ✅ Meta webhook integration
 - ✅ Message & conversation storage
 - ✅ Send Instagram DMs via API
-- ✅ Logging system
 
 ## Tech Stack
 
